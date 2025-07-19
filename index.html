@@ -7,36 +7,37 @@
   <title>PEDDY PROJECT</title>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="js/index.css">
 </head>
 
 <body>
   <header>
-    <!-- navber section -->
-    <nav class="w-[1300px] mx-auto mt-12">
-      <div class="navbar bg-base-100 ">
+    <!-- Navbar Section -->
+    <nav class="w-full max-w-[1300px] px-4 mx-auto mt-12">
+      <div class="navbar bg-base-100 flex flex-wrap justify-between items-center">
         <div class="navbar-start">
-          <div class="dropdown flex gap-3">
-            <img src="../images/logo.webp" alt="">
+          <div class="dropdown flex gap-3 items-center">
+            <img src="images/logo.webp" alt="">
             <h1 class="text-2xl font-bold">Peddy</h1>
           </div>
         </div>
-        <div class="navbar-center gap-8">
-          <a class=" normal-case text-xl">Home</a>
-          <a class=" normal-case text-xl">Shop</a>
-          <a class=" normal-case text-xl">Contact</a>
+        <div class="navbar-center gap-4 md:gap-8 flex">
+          <a class="normal-case text-xl">Home</a>
+          <a class="normal-case text-xl">Shop</a>
+          <a class="normal-case text-xl">Contact</a>
         </div>
-        <div class="navbar-end">
+        <div class="navbar-end flex gap-2">
           <button class="btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
           <button class="btn btn-ghost btn-circle">
             <div class="indicator">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
@@ -45,38 +46,95 @@
           </button>
         </div>
       </div>
-
     </nav>
-    <section>
-      <div class=" text-center flex justify-center mt-32 ">
-        <div class="max-w-md  space-y-5 mr-40">
-          <p class=" normal-case text-xl w-[600px]">Bringing Families Together ❤️‍🔥 </p>
-          <h1 class="text-6xl font-bold  w-[600px] ">Your Path to Adoption Starts Here</h1>
-          <p class="py-6 w-[600px]">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+
+    <!-- Banner Section -->
+    <section class="px-4">
+      <div class="flex justify-center text-center mt-20">
+        <div class="space-y-5 max-w-2xl">
+          <p class="text-xl">Bringing Families Together ❤️‍🔥</p>
+          <h1 class="text-4xl md:text-6xl font-bold">Your Path to Adoption Starts Here</h1>
+          <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
             exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-          <button class="btn btn-primary ml-24 w-[150px] bg-[#0E7A81] border-none hover:text-white text-[#FFFFFF]">View
-            More</button>
+          <button class="btn btn-primary w-[150px] bg-[#0E7A81] border-none text-white">View More</button>
         </div>
       </div>
     </section>
-    <div class="flex justify-center mt-32">
-      <img class="" src="images/pet.webp" alt="">
+
+    <!-- Pet Image -->
+    <div class="flex justify-center mt-12 px-4">
+      <img src="images/pet.webp" class="w-full max-w-[700px]" alt="">
     </div>
   </header>
-  <main>
-        <section class="mt-32">
-          <div class=" text-center flex justify-center space-y-5">
-    <div class="max-w-md ">
-      <h1 class="text-5xl font-bold w-[600px]">Adopt  Your  Best Friend</h1>
-      <p class="py-6 w-[550px] ml-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      
-    </div>
-  </div>
-        </section>
-  </main>
-  <footer>
 
+  <main>
+    <!-- Adoption Intro -->
+    <section class="mt-20 px-4">
+      <div class="text-center flex justify-center">
+        <div class="max-w-2xl space-y-5">
+          <h1 class="text-3xl md:text-5xl font-bold">Adopt Your Best Friend</h1>
+          <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+            exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Section -->
+    <section id="catagoriContainer" class="flex flex-wrap justify-center justify-between gap-4 w-full max-w-[1200px] mx-auto mt-10 px-4">
+    </section>
+
+    <!-- Spinner -->
+    <div class="flex justify-center mt-16">
+      <span id="spinner" class="loading loading-spinner loading-lg hidden"></span>
+    </div>
+
+    <!-- Sort Bar -->
+    <div class="w-full max-w-[1350px] mx-auto px-4 mt-10">
+      <div class="navbar bg-base-100 flex flex-col md:flex-row justify-between items-center gap-4">
+        <a class="btn btn-ghost normal-case text-xl font-bold">Best Deal For you</a>
+        <button class="btn btn-accent bg-[#0E7A81] text-white border-none">Sort by Price</button>
+      </div>
+    </div>
+
+    <!-- Card Section with addcard next to cardContainer2 -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 mt-10">
+      <section id="card-sections" class="flex flex-col lg:flex-row gap-10">
+        <!-- Cards -->
+        <div class="flex flex-col lg:flex-row gap-10 w-full">
+          <div id="cardContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+          <div id="cardContainer2" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+        </div>
+            
+        <!-- Sidebar Add Card -->
+        <div id="addcard" class="lg:w-[300px] w-full bg-black text-white p-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic doloremque soluta exercitationem in laborum nemo
+          atque labore ipsa voluptate magni maiores odit, non dignissimos deleniti aperiam possimus assumenda qui.
+          Inventore?
+        </div>
+      </section>
+      <div id="noDataMessage" class="text-center flex flex-col justify-end items-center  hidden max-w-[650px] mb-[120px] ml-48 mt-[-150px]">
+         <img class="w-[150px] ml-10 "  src="images/error.webp" alt="">
+         <h1 class="font-bold text-2xl text-[#131313]">No Information Available</h1>
+         <p class="text-[#131313]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+its layout. The point of using Lorem Ipsum is that it has a.</p>
+         
+        </div>
+    </div>
+    <div id="spinner" class="flex justify-center hidden">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+  </main>
+
+  <!-- Open the modal using ID.showModal() method -->
+   <div id="modalContainer">
+
+
+
+   </div>
+  <footer class="mt-20 p-5 bg-base-200 text-center">
+    <p>© 2025 Peddy Project. All rights reserved.</p>
   </footer>
+
   <script src="js/index.js"></script>
 </body>
 
