@@ -7,6 +7,7 @@ const loadAllData = async () => {
   displayAllData(data.pets);
 
   document.getElementById('spinner').classList.add("hidden");
+
 };
 
 const Allcatagore = async () => {
@@ -50,7 +51,7 @@ const displayAllData = (data) => {
   data.forEach((item) => {
     const { gende, breed, date_of_birth, price, pet_name, image, petId } = item;
     const card = document.createElement('div');
-    card.classList = "shadow-lg rounded bg-slate-200 p-4 flex flex-col justify-between";
+    card.classList = "shadow-lg rounded bg-slate-200 p-4  flex flex-col justify-between";
 
     card.innerHTML = `
       <figure><img class="rounded w-full h-48 object-cover" src="${image}" alt="Pet" /></figure>
@@ -62,12 +63,14 @@ const displayAllData = (data) => {
         <p>Price: ${price}</p>
       </div>
       <div class="mt-4 flex justify-between items-center">
-        <img src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="Like Icon" class="w-6 h-6 cursor-pointer" />
-        <button class="btn text-[#0E7A81]">Adopt</button>
+        <img onclick="addfavarit('${image}')" src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="Like Icon" class="w-6 h-6 cursor-pointer" />
+        <button onclick="displayinterval()" class="btn text-[#0E7A81]">Adopt</button>
         <button onclick="displayModal('${petId}')" class="btn text-[#0E7A81]">Details</button>
       </div>
     `;
     cardContainer.appendChild(card);
+    
+    displaplaydisandingorder(price)
   });
 };
 
@@ -87,7 +90,7 @@ const displayallcatagory = (data) => {
   data.forEach((item) => {
     const { gende, breed, date_of_birth, price, pet_name, image, petId } = item;
     const card = document.createElement('div');
-    card.classList = "shadow-lg rounded bg-slate-200 p-4";
+    card.classList = "shadow-lg rounded bg-slate-200 p-4 h-[450px]";
 
     card.innerHTML = `
       <figure><img class="rounded w-full h-48 object-cover" src="${image}" alt="Pet" /></figure>
@@ -99,8 +102,8 @@ const displayallcatagory = (data) => {
         <p>Price: ${price}</p>
       </div>
       <div class="mt-4 flex justify-between items-center">
-        <img src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="Like Icon" class="w-6 h-6 cursor-pointer" />
-        <button class="btn text-[#0E7A81]">Adopt</button>
+        <img onclick="addfavarit('${image}')" src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="Like Icon" class="w-6 h-6 cursor-pointer" />
+        <button onclick="displayinterval()" class="btn text-[#0E7A81]">Adopt</button>
         <button onclick="displayModal('${petId}')" class="btn text-[#0E7A81]">Details</button>
       </div>
     `;
@@ -143,6 +146,60 @@ const displayModal = async (id1) => {
 
        my_modal_1.showModal();
 };
+
+
+
+// ...............................................setinterval......................................... 
+
+const displayinterval = () => {
+  // First clear the modal container
+
+  const intervalContainer = document.getElementById("intervalContainer");
+  intervalContainer.innerHTML = `
+    <dialog id="my_modal_3" class="modal">
+      <div class="modal-box flex flex-col justify-center text-center w-72">
+       
+        <img class="" src="https://image.shutterstock.com/image-vector/fireworks-celebration-background-winner-victory-150nw-458132410.jpg">
+        <h1 class="py-4 text-2xl font-bold text-red-600">congratulation</h1>
+      </div>
+  
+    </dialog>
+
+  `;
+
+  // Show the modal
+  const modal = document.getElementById("my_modal_3");
+  modal.showModal();
+
+  // Automatically close modal after 3 seconds
+  setTimeout(() => {
+    modal.close();
+  }, 2000);
+};
+
+const addfavarit = (image) =>{
+  const images = image
+  const addimageContainer = document.getElementById("addimageContainer")
+  addimageContainer.classList.remove("hidden")
+    const div = document.createElement("span")
+    div.classList="w-[100px] h-auto  ml-5"
+    div.innerHTML=`
+    
+   <img  src="${images}">
+   
+    `
+    addimageContainer.appendChild(div)
+
+  console.log('THIS IS FAVARIT', images)
+}
+
+const displaplaydisandingorder = (price) => {
+  console.log("this is disanding order", price)
+}
+
+
+
+// ...............................................setinterval......................................... 
 
 // Show spinner and load all data after delay
 document.getElementById('spinner').classList.remove("hidden");
