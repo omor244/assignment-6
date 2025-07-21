@@ -1,10 +1,14 @@
+
+ let allPets = [];
+
 const loadAllData = async () => {
   document.getElementById('spinner').classList.remove("hidden");
 
   const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
   const data = await res.json();
 
-  displayAllData(data.pets);
+    allPets = data.pets; // Store globally for sorting
+  displayAllData(allPets);
 
   document.getElementById('spinner').classList.add("hidden");
 
@@ -47,7 +51,7 @@ const displayAllData = (data) => {
   const cardContainer2 = document.getElementById("cardContainer2");
   cardContainer.innerHTML = "";
   cardContainer2.innerHTML = "";
-
+ document.getElementById("cardContainer").classList.remove("hidden");
   data.forEach((item) => {
     const { gende, breed, date_of_birth, price, pet_name, image, petId } = item;
     const card = document.createElement('div');
@@ -67,10 +71,10 @@ const displayAllData = (data) => {
         <button onclick="displayinterval()" class="btn text-[#0E7A81]">Adopt</button>
         <button onclick="displayModal('${petId}')" class="btn text-[#0E7A81]">Details</button>
       </div>
-    `;
-    cardContainer.appendChild(card);
+      `;
+      cardContainer.appendChild(card);
+     
     
-    displaplaydisandingorder(price)
   });
 };
 
@@ -182,7 +186,7 @@ const addfavarit = (image) =>{
   const addimageContainer = document.getElementById("addimageContainer")
   addimageContainer.classList.remove("hidden")
     const div = document.createElement("span")
-    div.classList="w-[100px] h-auto  ml-5"
+    div.classList=" h-auto  ml-5"
     div.innerHTML=`
     
    <img  src="${images}">
@@ -193,10 +197,13 @@ const addfavarit = (image) =>{
   console.log('THIS IS FAVARIT', images)
 }
 
-const displaplaydisandingorder = (price) => {
-  console.log("this is disanding order", price)
-}
+const displaplaydisandingorder = (data) => {
+  if (!data || !data.length) return;
 
+  const sortedData = [...data].sort((a, b) => Number(b.price) - Number(a.price));
+
+  displayAllData(sortedData);
+};
 
 
 // ...............................................setinterval......................................... 
